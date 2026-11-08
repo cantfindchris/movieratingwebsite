@@ -39,10 +39,35 @@
 
     </head> 
     
-    <body> 
-        
+    <body>
+  <div class="review-container">
+    <h2>Add to Watchlist</h2>
+    <form id="movieForm">
+      <label for="movieId">Movie ID:</label>
+      <input type="text" id="movieId" placeholder="e.g., tt0111161" required>
 
-    </body>
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="Movie">Movie</option>
+        <option value="TV Show">TV Show</option>
+        <option value="Documentary">Documentary</option>
+      </select>
+
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" placeholder="e.g., Action, Sci-Fi" required>
+
+      <label for="directorCast">Director / Cast:</label>
+      <input type="text" id="directorCast" placeholder="e.g., Christopher Nolan, Leonardo DiCaprio" required>
+
+      <label for="year">Release Year:</label>
+      <input type="number" id="year" placeholder="2010" required>
+
+      <button type="submit">Save to Watchlist</button>
+    </form>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
 
 
 </html>
