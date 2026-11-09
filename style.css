@@ -1,4 +1,37 @@
-body {
-    background-color: #14181c;
-    
+body {  background: linear-gradient(180deg, #0d1117 0%, #07090e 100%);
+        min-height: 100vh;
+        margin: 0;
 }
+
+.stars {
+            color: #1e7923;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            display: block; 
+        }
+    
+.logo {
+            margin-bottom: 20px;
+            align-items: center;
+            display:flex;
+}
+
+.logo {
+    display: flex;
+    justify-content: center; /* Centers the h1 horizontally */
+    align-items: center;     /* Centers the h1 vertically (if the container has height) */
+    width: 100%;             /* Ensures the container spans the full width to allow centering */
+}
+
+.logo h1 {
+    color: #1e7923;
+    font-size: 4rem;
+    font-weight: bold;   
+    margin: 0;
+
+    background: linear-gradient(to right, #10b125, #214c0e, #25a930);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
