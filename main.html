@@ -1,52 +1,51 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmFlix</title>
+    >
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<html>
-    <head>
-        <meta charset = 'utf- 8'>
-        <title> Movierating</title>
+    <div class="logo"> 
+        <img src="/images/logo.png" alt="FilmFlix Logo" width="50" height="50">
+        <h1>FilmFlix</h1>
+    </div>
 
-        <link rel = "stylesheet" href = "/style.css">
+    <h1>Trending Movies</h1>
+    <div id="movie-grid" class="movie-grid"></div>
 
-    </head> 
-    
-    <body>
-  <div class="review-container">
-    <h2>Add to Watchlist</h2>
-    <form id="movieForm">
-      <label for="movieId">Movie ID:</label>
-      <input type="text" id="movieId" placeholder="e.g., tt0111161" required>
+    <div class="review-container">
+        <h2>Add to Watchlist</h2>
+        <form id="movieForm">
+            <label for="movieId">Movie ID:</label>
+            <input type="text" id="movieId" placeholder="e.g., tt0111161" required>
 
-      <label for="category">Category:</label>
-      <select id="category">
-        <option value="Movie">Movie</option>
-        <option value="TV Show">TV Show</option>
-        <option value="Documentary">Documentary</option>
-      </select>
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Movie">Movie</option>
+                <option value="TV Show">TV Show</option>
+                <option value="Documentary">Documentary</option>
+            </select>
 
-      <label for="genre">Genre:</label>
-      <input type="text" id="genre" placeholder="e.g., Action, Sci-Fi" required>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" placeholder="e.g., Action, Sci-Fi" required>
 
-      <label for="directorCast">Director / Cast:</label>
-      <input type="text" id="directorCast" placeholder="e.g., Christopher Nolan, Leonardo DiCaprio" required>
+            <label for="directorCast">Director / Cast:</label>
+            <input type="text" id="directorCast" placeholder="e.g., Christopher Nolan, Leonardo DiCaprio" required>
 
-      <label for="year">Release Year:</label>
-      <input type="number" id="year" placeholder="2010" required>
+            <label for="year">Release Year:</label>
+            <input type="number" id="year" placeholder="2010" required>
 
-      <button type="submit">Save to Watchlist</button>
-    </form>
-  </div>
+            <button type="submit">Save to Watchlist</button>
+        </form>
+    </div>
   
-  <script src="app.js"></script>
+    <!-- JavaScript files grouped at the bottom for better performance -->
+    <script src="movie.js"></script>
+    <script src="app.js"></script>
+
 </body>
-
-
-    <body> 
-   <div class="logo"> 
-    <img src="/images/logo.png" alt="FilmFlix Logo" width="50" height="50">
-    <h1>FilmFlix</h1>
-</div>
-
-
-
-    </body>
 </html>
