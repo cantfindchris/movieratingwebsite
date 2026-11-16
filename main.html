@@ -42,6 +42,21 @@
             <button type="submit">Save to Watchlist</button>
         </form>
     </div>
+
+    <div class="filter-container">
+    <h2>My Watchlist</h2>
+    
+    <label for="statusFilter">Status:</label>
+    <select id="statusFilter">
+        <option value="All">All</option>
+        <option value="Want to Watch">Want to Watch</option>
+        <option value="Watched">Watched</option>
+    </select>
+
+    <label for="genreFilter">Genre:</label>
+    <input type="text" id="genreFilter" placeholder="Type to filter...">
+</div>
+<div id="watchlist-grid" class="movie-grid"></div>
   
     <!-- JavaScript files grouped at the bottom for better performance -->
     <script src="movie.js"></script>
