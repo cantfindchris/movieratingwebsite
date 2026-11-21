@@ -1,69 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FilmFlix</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" ">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilmFlex</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 </head>
- <!--Christian Torres Work starts here-->
+
 <body>
+  <!--Christian Torres Work starts here-->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo-container">
+        <h1 class="logo">FilmFlex</h1>
+      </div>
+      <div class="profile-container">
+        <!-- Profile avatar image source: Local repository asset (images.jpeg) -->
 
-    <nav class = "navbar"> 
-        <div class = "navbar-container">
-            <div class = "logo-container"> <h1 class = "logo"> FilmFlex </h1> </div>
-             <div class = "profile-container"> 
-                <img class = "user-profile" src = "images.jpeg" alt = profilepicture>
-                    <div class = "profile-container-text"> 
-                        <span class = "profile-text"> Profile </span>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </div>
-        
-                </div>
-            <div class ="menu-container">
-                <ul class ="menu-list"> 
-                    <li class ="menu-list-item"> Home </li>
-                    <li class ="menu-list-item"> Movies </li>
-                    <li class ="menu-list-item"> Popular </li>
-                
-                </ul>
-            </div>
+      <div class="menu-container">
+        <ul class="menu-list">
+          <li class="menu-list-item">Home</li>
+          <li class="menu-list-item">Movies</li>
+          <li class="menu-list-item">Popular</li>
+        </ul>
+      </div>
+    </div>
+            <img class="user-profile" src="images.jpeg" alt="profilepicture">
+        <div class="profile-container-text">
+          <span class="profile-text">Profile</span>
+          <i class="fa-solid fa-angle-down"></i>
         </div>
-    </nav>
- <!--Christian Torres Work Ends here-->
+      </div>
+  </nav>
+  <!--Christian Torres Work Ends here-->
 
-    <h1>Trending Movies</h1>
-    <div id="movie-grid" class="movie-grid"></div>
+  <!--Esperanza Baquedano Work starts here-->
+  <!--
+    CSIT 337 Midterm Project - Watchlist & Rating Features
+    Author: Esperanza Baquedano
+    Image Sources: Official movie poster thumbnails via IMDb / Amazon Media (m.media-amazon.com)
+  -->
+  <main class="main-content">
+    <section class="hero-header">
+      <h1>Trending &amp; Watchlist</h1>
+      <p>Track what you want to watch, log completed films, and rate your favorites.</p>
+    </section>
 
-    <div class="review-container">
-        <h2>Add to Watchlist</h2>
-        <form id="movieForm">
-            <label for="movieId">Movie ID:</label>
-            <input type="text" id="movieId" placeholder="e.g., tt0111161" required>
+    <!-- Side-by-Side Featured Movie Spotlight Grid (Inception, La La Land, Interstellar) -->
+    <div class="featured-grid">
+      <section class="featured-movie-card">
+        <div class="featured-poster">
+          <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" alt="Inception Movie Poster">
+        </div>
 
-            <label for="category">Category:</label>
-            <select id="category">
-                <option value="Movie">Movie</option>
-                <option value="TV Show">TV Show</option>
-                <option value="Documentary">Documentary</option>
-            </select>
+        <div class="featured-details">
+          <div class="featured-badges">
+            <span class="badge-red">Featured Pick</span>
+            <span class="badge-dark">Sci-Fi &bull; 2010</span>
+            <span class="badge-dark">PG-13 &bull; 2h 28m</span>
+          </div>
 
-            <label for="genre">Genre:</label>
-            <input type="text" id="genre" placeholder="e.g., Action, Sci-Fi" required>
+          <h2>Inception</h2>
+          <p class="featured-director">Directed by Christopher Nolan &bull; Starring Leonardo DiCaprio</p>
+          
+          <p class="featured-summary">
+            A skilled thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., blurring the line between dreams and reality.
+          </p>
 
-            <label for="directorCast">Director / Cast:</label>
-            <input type="text" id="directorCast" placeholder="e.g., Christopher Nolan, Leonardo DiCaprio" required>
+          <div class="featured-footer">
+            <div class="featured-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-score">4.9 / 5.0</span>
+            </div>
+            <button type="button" class="btn-featured" onclick="quickAddMovie('Inception', 'Sci-Fi', 'Christopher Nolan, Leonardo DiCaprio', 2010, 'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg')">
+              + Add to My Watchlist
+            </button>
+          </div>
+        </div>
+      </section>
 
-            <label for="year">Release Year:</label>
-            <input type="number" id="year" placeholder="2010" required>
+      <section class="featured-movie-card">
+        <div class="featured-poster">
+          <img src="https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg" alt="La La Land Movie Poster">
+        </div>
 
-            <button type="submit">Save to Watchlist</button>
-        </form>
+        <div class="featured-details">
+          <div class="featured-badges">
+            <span class="badge-red">Staff Favorite</span>
+            <span class="badge-dark">Drama &bull; 2016</span>
+            <span class="badge-dark">PG-13 &bull; 2h 8m</span>
+          </div>
+
+          <h2>La La Land</h2>
+          <p class="featured-director">Directed by Damien Chazelle &bull; Starring Ryan Gosling, Emma Stone</p>
+          
+          <p class="featured-summary">
+            While navigating their careers in Los Angeles, a dedicated jazz pianist and an aspiring actress fall in love while attempting to reconcile their aspirations for the future.
+          </p>
+
+          <div class="featured-footer">
+            <div class="featured-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-score">4.8 / 5.0</span>
+            </div>
+            <button type="button" class="btn-featured" onclick="quickAddMovie('La La Land', 'Drama', 'Damien Chazelle, Ryan Gosling, Emma Stone', 2016, 'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg')">
+              + Add to My Watchlist
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-movie-card">
+        <div class="featured-poster">
+          <img src="https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_SX300.jpg" alt="Interstellar Movie Poster">
+        </div>
+
+        <div class="featured-details">
+          <div class="featured-badges">
+            <span class="badge-red">Top Rated</span>
+            <span class="badge-dark">Sci-Fi &bull; 2014</span>
+            <span class="badge-dark">PG-13 &bull; 2h 49m</span>
+          </div>
+
+          <h2>Interstellar</h2>
+          <p class="featured-director">Directed by Christopher Nolan &bull; Starring Matthew McConaughey, Anne Hathaway</p>
+          
+          <p class="featured-summary">
+            When Earth becomes uninhabitable in the future, a former NASA pilot is tasked to pilot a spacecraft along with a team of researchers to find a new planet for humans.
+          </p>
+
+          <div class="featured-footer">
+            <div class="featured-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-score">4.9 / 5.0</span>
+            </div>
+            <button type="button" class="btn-featured" onclick="quickAddMovie('Interstellar', 'Sci-Fi', 'Christopher Nolan, Matthew McConaughey, Anne Hathaway', 2014, 'https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_SX300.jpg')">
+              + Add to My Watchlist
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <script src="movie.js"></script>
-    <script src="app.js"></script>
+    <!-- Modern Dark Glass Form Card -->
+    <section class="review-container">
+      <h2>Add to Watchlist</h2>
+      <form id="movieForm">
+        <div class="form-group">
+          <label for="movieId">Movie Title or ID</label>
+          <input type="text" id="movieId" placeholder="e.g., La La Land or tt3783958" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Movie">Movie</option>
+            <option value="TV Show">TV Show</option>
+            <option value="Documentary">Documentary</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <select id="genre">
+            <option value="Action">Action</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="directorCast">Director / Cast</label>
+          <input type="text" id="directorCast" placeholder="e.g., Damien Chazelle" required>
+        </div>
+
+        <div class="form-group">
+          <label for="year">Release Year</label>
+          <input type="number" id="year" placeholder="2016" min="1900" max="2030" required>
+        </div>
+
+        <div class="form-group">
+          <label for="posterUrl">Poster Image URL (Optional)</label>
+          <input type="url" id="posterUrl" placeholder="https://example.com/poster.jpg">
+        </div>
+
+        <div class="form-group form-submit">
+          <button type="submit">+ Save to Watchlist</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Filter Pills & Genre Selector -->
+    <section class="filter-controls">
+      <div class="status-tabs">
+        <button class="filter-tab active" data-status="all">All Movies</button>
+        <button class="filter-tab" data-status="want-to-watch">Want to Watch</button>
+        <button class="filter-tab" data-status="watched">Watched</button>
+      </div>
+
+      <div class="genre-filter-box">
+        <label for="genreFilter">Filter by Genre:</label>
+        <select id="genreFilter">
+          <option value="all">All Genres</option>
+          <option value="Action">Action</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Horror">Horror</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Movie Cards Grid -->
+    <section id="movie-grid" class="movie-grid"></section>
+  </main>
+  <!--Esperanza Baquedano Work ends here-->
+
+  <script src="movie.js"></script>
 </body>
 </html>

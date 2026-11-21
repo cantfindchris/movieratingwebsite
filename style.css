@@ -1,118 +1,522 @@
-body {  
-    background: white;
-    min-height: 100vh;
-    margin: 0;
-}
+/* ==========================================================================
+   CSIT 337 Internet Computing - Midterm Project (style.css)
+   Group Contributions:
+   - Christian Torres: Top navigation bar layout, logo, profile container, & menu
+   - Esperanza Baquedano: Netflix red & black theme, side-by-side featured movie
+     spotlight boxes, Add to Watchlist form card, status/genre filters, & poster grid
+   ========================================================================== */
 
+/*Christian Torres Work starts here*/
 .navbar {
-    width: 100%;
-    height: auto;
-    background-color: #131c31;
-    align-items: center;
-    display: flex;
-    
+  width: 100%;
+  height: auto;
+  background: linear-gradient(90deg, rgba(18, 4, 6, 0.95) 0%, rgba(10, 10, 12, 0.95) 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(229, 9, 20, 0.35);
+  align-items: center;
+  display: flex;
+  padding: 0.85rem 2rem;
 }
 
 .navbar-container {
-    background-color: #131c31;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 50px;
-    margin: 12px;
-    
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 50px;
+  margin: 12px;
 }
 
 .logo-container {
-    margin-left: -20px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+  margin-left: -20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .logo {
-    top: 20px;
-    left: 40px;
-    margin: 0;
-    width: auto;
-    font-size: 50px;
-    font-weight: bold;  
-    color: #737bc7;
-    margin-left: 120px;
-
+  top: 20px;
+  left: 40px;
+  margin: 0;
+  width: auto;
+  font-size: 50px;
+  font-weight: 800;
+  color: #DC1C13;
+  letter-spacing: 0.5px;
+  margin-left: 120px;
 }
 
 .menu-container {
-    flex: 6;
-    display: flex;
-    align-items: center;
-
-
+  flex: 6;
+  display: flex;
+  align-items: center;
 }
 
 .menu-list {
-    display:flex;
-    color: hwb(221 78% 3%);
-    list-style: none;
-    font-weight: bold;
-    margin-left: 20px;
-    font-size: 20px;
+  display: flex;
+  color: hwb(221 78% 3%);
+  list-style: none;
+  font-weight: bold;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 .menu-list-item {
-    margin-left: 50px;
-
+  margin-left: 50px;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .menu-list-item:hover {
-    color: #737bc7;
+  color: #e50914;
 }
 
 .profile-container {
-    flex: 2;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    justify-content: flex-end;
-
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
 .profile-text {
   font-weight: bold;
   color: hwb(221 78% 3%);
   font-size: 20px;
-
 }
+
 .user-profile {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 75px
- 
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 75px;
 }
 
-.toggle{
-    width: 40px;
-    height: 20px;
-    background-color: white;
-    border-radius: 30px;
-    margin-left: 20px;
+.toggle {
+  width: 40px;
+  height: 20px;
+  background-color: white;
+  border-radius: 30px;
+  margin-left: 20px;
 }
 
 .fa-solid.fa-angle-down {
+  color: #e50914;
+}
+/*Christian Torres Work Ends here*/
 
-    position: absolute;
-    color: #737bc7;
+/*Esperanza Baquedano Work starts here*/
+:root {
+  --bg-main: #0d0d0f;
+  --bg-card: #18181c;
+  --bg-input: #232329;
+  --netflix-red: #e50914;
+  --netflix-red-glow: rgba(229, 9, 20, 0.35);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --border-subtle: #2c2c35;
+  --star-gold: #f5c518;
 }
 
-
-.logo h1{
-  
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+ body {
+  background-color: #0d0d0f;
+  background-image: 
+    radial-gradient(circle at top center, rgba(229, 9, 20, 0.28) 0%, rgba(120, 4, 10, 0.12) 40%, transparent 75%),
+    linear-gradient(180deg, #1f0507 0%, #0d0d0f 45%, #160406 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
 
+/* Main Content Wrapper */
+.main-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
 
+/* Hero Section Title */
+.hero-header {
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--netflix-red);
+  padding-left: 1rem;
+}
+
+.hero-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hero-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Side-by-Side Featured Movies Grid (Inception, La La Land, Interstellar) */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Boxed Card Around Each Featured Movie */
+.featured-movie-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, #1d1d24 0%, #121216 100%);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--netflix-red);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featured-movie-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--netflix-red);
+  box-shadow: 0 16px 34px rgba(229, 9, 20, 0.22);
+}
+
+.featured-poster img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 2px solid var(--netflix-red);
+}
+
+.featured-details {
+  flex: 1;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+/* Genre, Year & Featured Badges inside each movie box */
+.featured-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.badge-red {
+  background-color: var(--netflix-red);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-dark {
+  background-color: #262630;
+  color: var(--text-secondary);
+  border: 1px solid #343442;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.22rem 0.6rem;
+  border-radius: 5px;
+}
+
+.featured-details h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.featured-director {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.featured-summary {
+  font-size: 0.9rem;
+  color: #d4d4d8;
+  line-height: 1.55;
+}
+
+/* Featured Card Rating & Quick-Add Button Footer */
+.featured-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.featured-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.featured-rating .stars {
+  color: var(--star-gold);
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.rating-score {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.btn-featured {
+  background-color: var(--netflix-red);
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-featured:hover {
+  background-color: #f6121d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--netflix-red-glow);
+}
+
+/* Sleek Dark Form Card ("Add to Watchlist") */
+.review-container {
+  background: linear-gradient(145deg, #1b1b20, #131317);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.75rem;
+  margin-bottom: 2.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.review-container h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+}
+
+#movieForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+#movieForm input,
+#movieForm select,
+.genre-filter-box select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#movieForm input:focus,
+#movieForm select:focus,
+.genre-filter-box select:focus {
+  outline: none;
+  border-color: var(--netflix-red);
+  box-shadow: 0 0 0 3px var(--netflix-red-glow);
+}
+
+#movieForm button[type="submit"] {
+  width: 100%;
+  padding: 0.72rem 1.2rem;
+  background-color: var(--netflix-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#movieForm button[type="submit"]:hover {
+  background-color: #f6121d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--netflix-red-glow);
+}
+
+/* Watchlist Status & Genre Filter Controls */
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.status-tabs {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tab:hover {
+  color: var(--text-primary);
+  border-color: #4a4a57;
+}
+
+.filter-tab.active {
+  background-color: var(--netflix-red);
+  color: #ffffff;
+  border-color: var(--netflix-red);
+  box-shadow: 0 4px 15px var(--netflix-red-glow);
+}
+
+.genre-filter-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.genre-filter-box label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.genre-filter-box select {
+  width: auto;
+  min-width: 155px;
+}
+
+/* Dynamic User Watchlist Movie Cards Grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.movie-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--netflix-red);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.75);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--netflix-red);
+}
+
+.movie-card-body {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.movie-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.movie-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Interactive Gold Star Ratings */
+.stars {
+  font-size: 1.35rem;
+  cursor: pointer;
+  margin: 0.35rem 0;
+}
+
+.star {
+  color: #3f3f4a;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.star.filled {
+  color: var(--star-gold);
+}
+
+.movie-card button {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #26262e;
+  color: #ffffff;
+  border: 1px solid #383844;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.movie-card button:hover {
+  background-color: var(--netflix-red);
+  border-color: var(--netflix-red);
+}
+/*Esperanza Baquedano Work ends here*/
