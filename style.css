@@ -4,6 +4,7 @@
    - Christian Torres: Top navigation bar layout, logo, profile container, & menu
    - Esperanza Baquedano: Netflix red & black theme, side-by-side featured movie
      spotlight boxes, Add to Watchlist form card, status/genre filters, & poster grid
+   - Brevin Kyei-Nimakoh: Made the add to watchlist work and some navbar link fixes
    ========================================================================== */
 
 /*Christian Torres Work starts here*/
@@ -71,6 +72,16 @@
 }
 
 .menu-list-item:hover {
+  color: #e50914;
+}
+/*Brevin: made it so the buttons dont have the blue underline */
+.menu-list-item a {
+  color: hwb(221 78% 3%);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu-list-item a:hover {
   color: #e50914;
 }
 
