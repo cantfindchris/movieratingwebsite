@@ -1,4 +1,5 @@
-const API_KEY = 'YOUR_TMDB_API_KEY'; // Optional: Replace with real TMDB key for live API fetchconst BASE_URL = 'https://api.themoviedb.org/3/';
+const API_KEY = 'YOUR_TMDB_API_KEY'; // Brevin: added BASE_URL because it was throwing an error when running
+const BASE_URL = 'https://api.themoviedb.org/3/';
 const TRENDING_MOVIES_URL = `${BASE_URL}trending/movie/week?api_key=${API_KEY}`;
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -205,14 +206,24 @@ window.rateMovie = function (id, stars) {
   }
 };
 
-// Featured Spotlight button ("+ Add to My Watchlist")
-window.quickAddFeatured = function () {
-  const exists = movies.some((m) => m.title.toLowerCase() === 'inception');
+//Brevin: fixed the add to watchlist button
+window.quickAddMovie = function (title, genre, directorCast, year, poster) {
+  const exists = movies.some((m) => m.title.toLowerCase() === title.toLowerCase());
   if (exists) {
-    alert('Inception is already in your watchlist!');
+    alert(`${title} is already in your watchlist!`);
     return;
   }
-  movies.unshift(SAMPLE_MOVIES[2]);
+  movies.unshift({
+    id: 'movie_' + Date.now(),
+    title,
+    category: 'Movie',
+    genre,
+    directorCast,
+    year,
+    status: 'want-to-watch',
+    rating: 0,
+    poster
+  });
   saveMovies();
   displayMovies(movies);
 };
